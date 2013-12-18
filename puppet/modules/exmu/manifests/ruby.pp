@@ -15,7 +15,7 @@ class exmu::ruby {
 
   rvm_gem {
     "$ruby_version/puppet":
-      ensure  => '3.2.0',
+      ensure  => '3.2.1',
       require => Rvm_system_ruby[$ruby_version];
   }
 
