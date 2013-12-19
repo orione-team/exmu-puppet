@@ -5,7 +5,7 @@ class exmu (
   $user             = 'exmu',
   $group            = 'exmu',
   $db_host          = 'localhost',
-  $db_port          = '3306',
+  $db_port          = '5432',
   $db_name          = 'exmu_development',
   $db_username      = 'exmu',
   $db_password      = 'exmu',
@@ -29,11 +29,11 @@ class exmu (
     db_root_password => $db_root_password
   }
 
-  #class { 'exmu::webserver':
-  #  environment   => $environment,
-  #  hostname      => $hostname,
-  #  app_directory => $app_directory
-  #}
+  class { 'exmu::webserver':
+    environment   => $environment,
+    hostname      => $hostname,
+    app_directory => $app_directory
+  }
 
   file { "${app_directory}/shared/config/database.yml":
       content => template('exmu/database.yml.erb'),
